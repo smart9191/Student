@@ -1,0 +1,47 @@
+server:
+  max-http-header-size: 20MB
+  servlet:
+   context-path: /std
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@//172.24.58.226:1521/dbdev.dc.local
+    username: vat_register_check_dev
+    password: vatregister123
+    driver-class-name: oracle.jdbc.OracleDriver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      minimum-idle: 1
+      maximum-pool-size: 10
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: uz.sicnt.mysoliq.lib.shared.config.CustomPhysicalNamingStrategy
+    show-sql: true
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 50MB
+
+httpclient:
+    connectionTimeout: 30
+    requestTimeout: 120
+    socketTimeout: 120
+    maxTotalConnections: 100
+    maxRouteConnections: 10
+    defaultKeepAliveTime: 120
+    idleConnectionWaitTime: 120
+
+
+microservice:
+    basic:
+        username: student
+        password: student123
+
+file:
+  upload-dir: D:/Upload
